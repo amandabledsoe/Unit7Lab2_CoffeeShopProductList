@@ -1,3 +1,8 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using System.ComponentModel.DataAnnotations;
+using U7L2.Models;
+
 namespace U7L2
 {
     public class Program
@@ -7,7 +12,9 @@ namespace U7L2
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddControllersWithViews();
+            //builder.Services.AddControllersWithViews();
+            var startup = new Startup(builder.Configuration);
+            startup.ConfigureServices(builder.Services);
 
             var app = builder.Build();
 
@@ -33,4 +40,34 @@ namespace U7L2
             app.Run();
         }
     }
+    public class Startup
+    {
+        public Startup(IConfigurationRoot configuration)
+        {
+            Configuration = configuration;
+        }
+        public IConfigurationRoot Configuration { get; }
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddControllersWithViews();
+            services.AddDbContext<CoffeeShopDbContext>(options =>
+                            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+        }
+        public void Configure(IApplicationBuilder app)
+        {
+            app.UseRouting();
+            app.UseEndpoints(x => x.MapControllers());
+        }
+    }
+
+    public class CoffeeShopDbContext : DbContext
+    {
+        public CoffeeShopDbContext(DbContextOptions<CoffeeShopDbContext> options) : base(options)
+        {
+            // Nothing needed
+        }
+
+        public DbSet<Products> Products { get; set; }
+    }
+
 }

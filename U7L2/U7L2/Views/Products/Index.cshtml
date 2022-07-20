@@ -1,0 +1,27 @@
+﻿@model U7L2.Models.ProductsList
+
+@{
+    ViewData["Title"] = "Product List";
+}
+
+<h1>Product List</h1>
+
+@{
+<table>
+    <thead>
+        <tr>
+            <td>PRODUCT ID</td>
+            <td>PRODUCT NAME</td>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var product in @Model.ProductList)
+    {
+        <tr>
+            <td>@product.ID</td>
+            <td><a href="GetDetails">@product.Name.ToUpper()</a></td>
+        </tr>        
+    }
+    </tbody>
+</table>
+}

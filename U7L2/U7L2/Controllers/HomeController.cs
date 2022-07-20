@@ -8,11 +8,14 @@ namespace U7L2.Controllers
     {
         CoffeeUser coffeeUser = new CoffeeUser();
         private readonly ILogger<HomeController> _logger;
+        private CoffeeShopDbContext _coffeeShopDbContext;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, CoffeeShopDbContext newCoffeeShopDbContext)
         {
             _logger = logger;
+            _coffeeShopDbContext = newCoffeeShopDbContext;
         }
+
 
         public IActionResult Index()
         {
