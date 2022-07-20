@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2022-07-20T01:03:50.4707955Z"
+    },
+    "secrets1": {
+      "restored": true,
+      "restoreTime": "2022-07-20T01:03:43.5646929Z"
+    }
+  },
+  "parameters": {
+    "mssql1.subscriptionId": {
+      "Name": "mssql1.subscriptionId",
+      "Type": "subscription",
+      "Value": "f8224ebd-a0a6-4569-b123-deed587daff3"
+    },
+    "mssql1.resourceGroupName": {
+      "Name": "mssql1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "grandcircus-2022april"
+    }
+  }
+}

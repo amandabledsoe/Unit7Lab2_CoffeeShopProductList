@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "type": "secrets.user"
+    },
+    "mssql1": {
+      "secretStore": "LocalSecretsFile",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/grandcircus-2022april/databases/database1",
+      "type": "mssql.azure",
+      "connectionId": "TheConnectionString",
+      "dynamicId": null
+    }
+  }
+}
