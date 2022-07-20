@@ -27,5 +27,26 @@ namespace U7L2.Controllers
             return View(theProductList);
         }
 
+        public IActionResult GetDetails(int ID)
+        {
+            Products targetProduct = null;
+            foreach (var item in _coffeeShopDbContext.Products)
+            {
+                if (item.ID==ID)
+                {
+                    targetProduct = item;
+                    break;
+                }
+            }
+            if (targetProduct != null)
+            {
+                return View(targetProduct);
+            }
+            else
+            {
+                throw new Exception("Something went wrong with your code!");
+            }
+
+        }
     }
 }

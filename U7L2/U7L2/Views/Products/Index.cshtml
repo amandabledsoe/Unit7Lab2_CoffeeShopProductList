@@ -7,9 +7,9 @@
 <h1>Product List</h1>
 
 @{
-<table>
+<table class="table-bordered text-center">
     <thead>
-        <tr>
+        <tr class="text-info" style="background-color:black">
             <td>PRODUCT ID</td>
             <td>PRODUCT NAME</td>
         </tr>
@@ -17,10 +17,20 @@
     <tbody>
     @foreach (var product in @Model.ProductList)
     {
-        <tr>
-            <td>@product.ID</td>
-            <td><a href="GetDetails">@product.Name.ToUpper()</a></td>
-        </tr>        
+        if (product.ID % 2 != 0)
+        {
+            <tr style="background-color:lightgray">
+                <td>@product.ID</td>
+                <td><a href="Products/GetDetails?ID=@product.ID">@product.Name.ToUpper()</a></td>
+            </tr>
+        }
+        else
+        {
+            <tr>
+                <td>@product.ID</td>
+                <td><a href="Products/GetDetails?ID=@product.ID">@product.Name.ToUpper()</a></td>
+            </tr>        
+        }
     }
     </tbody>
 </table>
