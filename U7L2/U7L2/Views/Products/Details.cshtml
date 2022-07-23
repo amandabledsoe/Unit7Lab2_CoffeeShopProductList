@@ -1,22 +1,22 @@
 ﻿@model U7L2.Models.Products
 
 @{
-    ViewData["Title"] = "GetDetails";
+    ViewData["Title"] = "Details";
 }
 
-<h1>GetDetails</h1>
+<h1>@Model.Name</h1>
 
 <div>
-    <h4>Products</h4>
+    <h4>Product Details</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+@*        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Name)
         </dd>
-        <dt class = "col-sm-2">
+*@        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Description)
         </dt>
         <dd class = "col-sm-10">
@@ -26,7 +26,7 @@
             @Html.DisplayNameFor(model => model.Price)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
+            $@Html.DisplayFor(model => @model.Price)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Category)
